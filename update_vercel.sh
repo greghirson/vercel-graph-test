@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+cd ~/vercel-graph-test
+
 dt=$(date '+%d/%m/%Y %H:%M:%S')
 
 echo "starting extraction for $dt...."
