@@ -3,7 +3,8 @@ import json
 import os
 from dotenv import load_dotenv
 import pandas as pd
-from datetime import datetime, timedelta, UTC
+#from datetime import datetime, timedelta, UTC
+from datetime import datetime, timedelta, timezone # change for 3.10
 from zoneinfo import ZoneInfo  # Available in Python 3.9+
 
 # Step 1: Load the token from .env file
@@ -29,7 +30,8 @@ if response.status_code == 200:
 
     # Step 3: Parse the "last_reported" and "state" fields
     records = []
-    now = datetime.now(UTC)
+    #now = datetime.now(UTC)
+    now = datetime.now().replace(tzinfo=timezone.utc) # change for 3.10
     six_hours_ago = now - timedelta(hours=6)
 
     for entry in data:
