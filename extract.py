@@ -57,7 +57,7 @@ if response.status_code == 200:
 
     # Group by 5-minute intervals and calculate the mean state
     df.set_index('last_reported', inplace=True)
-    df = df.resample('5T').mean().dropna().reset_index()
+    df = df.resample('5min').mean().dropna().reset_index()
 
     # Prepare data for Vega-Lite
     values = [
