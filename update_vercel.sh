@@ -2,12 +2,12 @@
 
 dt=$(date '+%d/%m/%Y %H:%M:%S')
 
-echo "starting extraction for $dt...."
+echo "starting extraction for $dt....\n"
 
 source venv/bin/activate
 python extract.py
 
-echo "extraction complete. Pushing to github...."
+echo "extraction complete. Pushing to github....\n"
 
 git add .
 git commit -m "new data at $dt"
