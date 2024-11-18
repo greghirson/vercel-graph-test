@@ -1,3 +1,8 @@
-starting extraction for 18/11/2024 10:00:01....
-Vega-Lite script has been successfully generated in script.js.
+starting extraction for 18/11/2024 11:00:01....
+Traceback (most recent call last):
+  File "/home/greg/vercel-graph-test/extract.py", line 61, in <module>
+    df.set_index('last_reported', inplace=True)
+  File "/home/greg/vercel-graph-test/venv/lib/python3.10/site-packages/pandas/core/frame.py", line 6122, in set_index
+    raise KeyError(f"None of {missing} are in the columns")
+KeyError: "None of ['last_reported'] are in the columns"
 extraction complete. Pushing to github....
