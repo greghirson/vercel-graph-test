@@ -1,8 +1,55 @@
-starting extraction for 21/11/2024 18:00:01....
+starting extraction for 21/11/2024 19:00:01....
 Traceback (most recent call last):
-  File "/home/greg/vercel-graph-test/extract.py", line 61, in <module>
-    df.set_index('last_reported', inplace=True)
-  File "/home/greg/vercel-graph-test/venv/lib/python3.10/site-packages/pandas/core/frame.py", line 6122, in set_index
-    raise KeyError(f"None of {missing} are in the columns")
-KeyError: "None of ['last_reported'] are in the columns"
+  File "/home/greg/vercel-graph-test/venv/lib/python3.10/site-packages/urllib3/connection.py", line 199, in _new_conn
+    sock = connection.create_connection(
+  File "/home/greg/vercel-graph-test/venv/lib/python3.10/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+  File "/usr/lib/python3.10/socket.py", line 955, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -3] Temporary failure in name resolution
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/greg/vercel-graph-test/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+  File "/home/greg/vercel-graph-test/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 490, in _make_request
+    raise new_e
+  File "/home/greg/vercel-graph-test/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 466, in _make_request
+    self._validate_conn(conn)
+  File "/home/greg/vercel-graph-test/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 1095, in _validate_conn
+    conn.connect()
+  File "/home/greg/vercel-graph-test/venv/lib/python3.10/site-packages/urllib3/connection.py", line 693, in connect
+    self.sock = sock = self._new_conn()
+  File "/home/greg/vercel-graph-test/venv/lib/python3.10/site-packages/urllib3/connection.py", line 206, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPSConnection object at 0x7f4a1d2d1ed0>: Failed to resolve 'ha.hirson.xyz' ([Errno -3] Temporary failure in name resolution)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/greg/vercel-graph-test/venv/lib/python3.10/site-packages/requests/adapters.py", line 667, in send
+    resp = conn.urlopen(
+  File "/home/greg/vercel-graph-test/venv/lib/python3.10/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+  File "/home/greg/vercel-graph-test/venv/lib/python3.10/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='ha.hirson.xyz', port=443): Max retries exceeded with url: /api/history/period?filter_entity_id=sensor.co2_mh_z19_co2_value (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f4a1d2d1ed0>: Failed to resolve 'ha.hirson.xyz' ([Errno -3] Temporary failure in name resolution)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/greg/vercel-graph-test/extract.py", line 26, in <module>
+    response = requests.get(url, headers=headers)
+  File "/home/greg/vercel-graph-test/venv/lib/python3.10/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "/home/greg/vercel-graph-test/venv/lib/python3.10/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File "/home/greg/vercel-graph-test/venv/lib/python3.10/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "/home/greg/vercel-graph-test/venv/lib/python3.10/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "/home/greg/vercel-graph-test/venv/lib/python3.10/site-packages/requests/adapters.py", line 700, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='ha.hirson.xyz', port=443): Max retries exceeded with url: /api/history/period?filter_entity_id=sensor.co2_mh_z19_co2_value (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7f4a1d2d1ed0>: Failed to resolve 'ha.hirson.xyz' ([Errno -3] Temporary failure in name resolution)"))
 extraction complete. Pushing to github....
