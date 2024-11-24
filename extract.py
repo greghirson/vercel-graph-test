@@ -9,7 +9,7 @@ from zoneinfo import ZoneInfo  # Available in Python 3.9+
 
 # Step 1: Load the token from .env file
 load_dotenv()  # Load environment variables from .env file
-api_token = os.getenv("API_TOKEN2")
+api_token = os.getenv("API_TOKEN")
 
 # Step 2: Set your local timezone (adjust as needed)
 local_timezone = ZoneInfo("America/Los_Angeles")  # Replace with your timezone if needed
