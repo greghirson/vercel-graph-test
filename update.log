@@ -6,3 +6,8 @@ Traceback (most recent call last):
     raise KeyError(f"None of {missing} are in the columns")
 KeyError: "None of ['last_reported'] are in the columns"
 extraction complete. Pushing to github....
+[main dd1addd] new data at 24/11/2024 02:00:01
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+To https://github.com/greghirson/vercel-graph-test.git
+   3f3425a..dd1addd  main -> main
+process complete. No errors
