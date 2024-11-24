@@ -9,7 +9,7 @@ from zoneinfo import ZoneInfo  # Available in Python 3.9+
 
 # Step 1: Load the token from .env file
 load_dotenv()  # Load environment variables from .env file
-api_token = os.getenv("API_TOKEN")
+api_token = os.getenv("API_TOKEN2")
 
 # Step 2: Set your local timezone (adjust as needed)
 local_timezone = ZoneInfo("America/Los_Angeles")  # Replace with your timezone if needed
@@ -35,7 +35,7 @@ if response.status_code == 200:
     six_hours_ago = now - timedelta(hours=6)
 
     for entry in data:
-        last_reported = entry.get('last_reported', '')
+        last_reported = entry.get('last_changed', '') #was last_reported before 2024-11-23
         state = entry.get('state', '')
 
         if state.lower() in ("unavailable", "unknown"):
@@ -56,7 +56,7 @@ if response.status_code == 200:
 
 # Convert to DataFrame for aggregation
     df = pd.DataFrame(records)
-
+    
     # Group by 5-minute intervals and calculate the mean state
     df.set_index('last_reported', inplace=True)
     df = df.resample('5min').mean().dropna().reset_index()
