@@ -1,8 +1,6 @@
-starting extraction for 07/09/2025 11:00:01....
+starting extraction for 07/09/2025 12:00:01....
 Traceback (most recent call last):
-  File "/home/greg/vercel-graph-test/extract.py", line 61, in <module>
-    df.set_index('last_reported', inplace=True)
-  File "/home/greg/vercel-graph-test/venv/lib/python3.10/site-packages/pandas/core/frame.py", line 6122, in set_index
-    raise KeyError(f"None of {missing} are in the columns")
-KeyError: "None of ['last_reported'] are in the columns"
+  File "/home/greg/vercel-graph-test/extract.py", line 29, in <module>
+    data = response.json()[0]
+IndexError: list index out of range
 extraction complete. Pushing to github....
