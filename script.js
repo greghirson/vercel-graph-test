@@ -3,7 +3,7 @@
       $schema: "https://vega.github.io/schema/vega-lite/v5.json",
       description: "CO2 sensor data chart",
       data: {
-        values: [{"a": "2025-06-09 10:05:00", "b": 2405.5}, {"a": "2025-06-09 10:10:00", "b": 4890.5}],
+        values: [{"a": "2025-12-22 10:15:00", "b": 1967.0}],
       },
       mark: "line",
       width: "container",
